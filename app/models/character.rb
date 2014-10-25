@@ -33,7 +33,8 @@ class Character
     end
 
     def self.search(name)
-        CHARACTERS.select { |character| character[:name].downcase =~ /#{name.downcase}/ }
+        search_string = Regexp.escape(name.downcase)
+        CHARACTERS.select { |character| character[:name].downcase =~ /#{search_string}/ }
     end
 
 end
