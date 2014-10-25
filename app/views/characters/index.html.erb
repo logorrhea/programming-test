@@ -6,9 +6,8 @@
         <%= button_tag 'Search', type: 'submit' %>
     </form>
 
-    <form action="/characters" method="POST">
-        <%= button_tag 'Clear', type: 'submit' %>
-    </form>
+    <a href="/characters"><button type="button">Clear</button></a>
+
 </div>
 
 <%- if @characters.size > 0 %>

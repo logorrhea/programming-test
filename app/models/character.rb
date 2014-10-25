@@ -13,6 +13,13 @@ class Character
         level: 28,
         equipment: ['Fur', 'Tail', 'Freaky Round Eyes'],
         avatar: 'jake.jpg'
+    },{
+        id: 3,
+        name: 'Solaire of Astora',
+        level: 2,
+        equipment: ["Astora's Straight Sword", 'Sunlight Shield', 'Iron Helm',
+                    'Armor of the Sun', 'Iron Bracelet', 'Iron Leggings'],
+        avatar: 'solaire.png'
     }]
 
     def self.all
@@ -24,7 +31,7 @@ class Character
     end
 
     def self.search(name)
-        CHARACTERS.select { |character| character[:name].downcase =~ /#{name}/ }
+        CHARACTERS.select { |character| character[:name].downcase =~ /#{name.downcase}/ }
     end
 
 end
