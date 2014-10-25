@@ -1,0 +1,22 @@
+<%= render 'search_form' %>
+
+<article class="search-results">
+
+<%- if @characters.size > 0 %>
+
+<h3>Results:</h3>
+<dl>
+    <% @characters.each do |character| %>
+        <dt>
+            <%= link_to character[:name], show_character_path(character[:id]) %>
+        </dt>
+    <% end %>
+</dl>
+
+<% else %>
+
+    No character names match your search, try again, 
+    or <a href="">Click here</a> to clear it.
+<% end %>
+
+</article>

@@ -27,7 +27,9 @@ class Character
     end
 
     def self.find(index)
-        CHARACTERS[index] unless (index < 0 || index > CHARACTERS.size)
+        CHARACTERS.select { |character|
+            character[:id] == index
+        }.first
     end
 
     def self.search(name)

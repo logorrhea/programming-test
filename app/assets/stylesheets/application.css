@@ -13,6 +13,7 @@
  */
 
 html {
+    font-size: 12pt;
     font-family: Verdana, Geneva, sans-serif;
 }
 
@@ -33,14 +34,39 @@ h1.armory {
     display: inline;
 }
 
+.search-results {
+    text-align: center;
+}
+
+.search-results dl {
+    margin: 0 auto;
+    width: 50%;
+}
+
+.search-results dt {
+    text-align: left;
+    height: 1.5em;
+    line-height: 1.5em;
+    border: 1px solid lightgrey;
+}
+
+.search-results dt a {
+    height: 100%;
+    width: 100%;
+}
+
+.container {
+    margin: 15px auto;
+    width: 900px;
+}
+
 .character-details {
     display: block;
     border: 1px solid lightgrey;
     clear: both;
-    margin: 15px auto;
-    width: 900px;
     padding: 20px;
     overflow: hidden;
+    margin-top: 20px;
 }
 
 .character-details .section {
