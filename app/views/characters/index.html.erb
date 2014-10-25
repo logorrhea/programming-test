@@ -1,21 +1,51 @@
-<h1>Listing characters</h1>
+<h1 class="armory">GenQuest Armory</h1>
 
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class="search-region">
+    <form action="/characters" method="POST">
+        <%= text_field_tag 'q', params[:q] %>
+        <%= button_tag 'Search', type: 'submit' %>
+    </form>
+
+    <form action="/characters" method="POST">
+        <%= button_tag 'Clear', type: 'submit' %>
+    </form>
+</div>
+
+<%- if @characters.size > 0 %>
 
 <% @characters.each do |character| %>
-  <tr>
-    <td><%= link_to 'Show', character %></td>
-    <td><%= link_to 'Edit', edit_character_path(character) %></td>
-    <td><%= link_to 'Destroy', character, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+<article class="character-details">
+
+    <div class="section">
+        <%= image_tag character[:avatar], alt: character[:name], class: 'thumb' %>
+    </div>
+
+    <div class="section">
+        <dl>
+            <dt>Name:</dt>
+            <dd><%= character[:name] %></dd>
+            <dt>Level:</dt>
+            <dd><%= character[:level] %></dd>
+        </dl>
+    </div>
+
+    <div class="section">
+        <dl>
+            <dt>Equipment:</dt>
+            <dd>
+                <ul>
+                    <% character[:equipment].each do |item| %>
+                        <li><%= item %></li>
+                    <% end %>
+                </ul>
+            </dd>
+        </dl>
+    </div>
+</article>
 <% end %>
-</table>
 
-<br />
+<% else %>
+    No character names match your search, try again, 
+    or <a href="">Click here</a> to clear it.
+<% end %>
 
-<%= link_to 'New Character', new_character_path %>

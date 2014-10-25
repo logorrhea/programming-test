@@ -11,3 +11,38 @@
  *= require_self
  *= require_tree .
  */
+html {
+    font-family: Verdana, Geneva, sans-serif;
+}
+
+img.thumb {
+    max-height: 150px;
+}
+
+h1.armory {
+    text-align: center;
+}
+
+.search-region {
+    margin: 10px auto;
+    text-align: center;
+}
+
+.search-region form {
+    display: inline;
+}
+
+.character-details {
+    display: block;
+    border: 1px solid lightgrey;
+    clear: both;
+    margin: 15px auto;
+    width: 900px;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.character-details .section {
+    width: 33%;
+    float: left;
+}
