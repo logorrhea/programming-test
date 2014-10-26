@@ -3,7 +3,7 @@
 
 angular.module('Armory')
 
-.controller('DescriptionController', ['$scope', '$http', '$sce', function($scope, $http, $sce) {
+.controller('DescriptionController', ['$scope', '$http', function($scope, $http) {
 
     // This will store character data once retrieved
     $scope.characters = {};
