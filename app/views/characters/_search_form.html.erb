@@ -1,7 +1,11 @@
 
 <div class="search-region">
     <form action="/characters/search" method="GET">
-        <%= text_field_tag 'q', params[:q] %>
-        <button type="submit">Search</button>
+        <div class="input-group">
+            <%= text_field_tag 'q', params[:q], class: 'form-control' %>
+            <span class="input-group-btn">
+                <button type="submit" class="btn btn-default">Search</button>
+            </span>
+        </div>
     </form>
 </div>

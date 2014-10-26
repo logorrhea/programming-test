@@ -16,7 +16,7 @@ angular.module('Armory')
     // Runs on popover.show
     $scope.retrieveCharacterDesc = function(character_id) {
         if (!$scope.descriptionRetrieved) {
-            $http.get('characters/' + character_id + '/desc')
+            $http.get('/characters/' + character_id + '/desc')
 
                 // Description load was successful, display it
                 .success(function(data) {

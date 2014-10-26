@@ -5,16 +5,21 @@
 <%- if @characters.size > 0 %>
 
 <h3>Results:</h3>
-<dl>
+<section class="list-group">
     <% @characters.each do |character| %>
-        <dt ng-controller="DescriptionController">
-            <a popover="{{characterDescription}}"
+        <a class="list-group-item" ng-controller="DescriptionController"
+                href="/characters/<%= character.id %>"
+                popover="{{characterDescription}}"
+                popover-placement="right"
+                popover-trigger="mouseenter"
+                popover-append-to-body="true"
+                popover-popup-delay="300"
+                popover-title="<%= character.name %> Description"
                 ng-mouseover="retrieveCharacterDesc(<%= character.id %>)">
-                <%= character.name %>
-            </a>
-        </dt>
+            <%= character.name %>
+        </a>
     <% end %>
-</dl>
+</section>
 
 <% else %>
     No character names match your search.

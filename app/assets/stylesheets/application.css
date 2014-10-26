@@ -27,33 +27,12 @@ h1.armory {
 }
 
 .search-region {
-    margin: 10px auto;
-    text-align: center;
-}
-
-.search-region form {
-    display: inline;
+    /*margin: 10px auto;*/
+    width: 30%;
 }
 
 .search-results {
-    text-align: center;
-}
-
-.search-results dl {
-    margin: 0 auto;
-    width: 50%;
-}
-
-.search-results dt {
-    text-align: left;
-    height: 1.5em;
-    line-height: 1.5em;
-    border: 1px solid lightgrey;
-}
-
-.search-results dt a {
-    height: 100%;
-    width: 100%;
+    width: 30%;
 }
 
 .container {
@@ -73,4 +52,8 @@ h1.armory {
 .character-details .section {
     width: 33%;
     float: left;
+}
+
+.popover {
+   min-width: 50%;
 }

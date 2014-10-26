@@ -26,4 +26,9 @@ def search
     end
 end
 
+def desc
+    @character = Character.find(params[:id].to_i)
+    render json: {description: @character.description}
+end
+
 end
