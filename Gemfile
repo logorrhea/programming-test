@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.19'
-gem 'bson_ext'
+#gem 'bson_ext'
 gem 'mongo_mapper'
 
 # Gems used only for assets and not required
