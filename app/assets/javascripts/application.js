@@ -11,6 +11,7 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require angular/angular
+//= require angular-sanitize/angular-sanitize
 //= require angular-bootstrap/ui-bootstrap-tpls
 //= require_self
 //= require_tree ./controllers
@@ -20,7 +21,8 @@
 
 // Declare the angular app, with ui-bootstrap as a dependency
 angular.module('Armory', [
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'ngSanitize'
 ]);
 
 })();

@@ -3,25 +3,25 @@
 
 angular.module('Armory')
 
-.controller('DescriptionController', ['$scope', '$http', function($scope, $http) {
+.controller('DescriptionController', ['$scope', '$http', '$sce', function($scope, $http, $sce) {
 
-    // Only load the description once
-    $scope.descriptionRetrieved = false;
+    // This will store character data once retrieved
+    $scope.characters = {};
 
-    // Placeholder text for the character description before it is loaded
-    // Chances are this won't even show up, but maybe the server is being
-    // slow?
-    $scope.characterDescription = "Loading...";
+    // The currently selected character
+    $scope.currentCharacter = null;
 
     // Runs on popover.show
-    $scope.retrieveCharacterDesc = function(character_id) {
-        if (!$scope.descriptionRetrieved) {
-            $http.get('/characters/' + character_id + '/desc')
+    $scope.retrieveCharacterDesc = function(characterId) {
+
+        // Only load each character once
+        if ($scope.characters[characterId] === undefined) {
+            $http.get('/characters/' + characterId)
 
                 // Description load was successful, display it
                 .success(function(data) {
-                    $scope.descriptionRetrieved = true;
-                    $scope.characterDescription = data.description;
+                    $scope.characters[characterId] = data;
+                    $scope.currentCharacter = $scope.characters[characterId];
                 })
 
                 // Server encountered an error trying to process
@@ -31,6 +31,8 @@ angular.module('Armory')
                 .error(function() {
                     $scope.characterDescription = "Failed to load the character description :(";
                 });
+        } else {
+            $scope.currentCharacter = $scope.characters[characterId];
         }
     };
 

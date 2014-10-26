@@ -8,10 +8,7 @@ end
 
 def show
     @character = Character.find(params[:id].to_i)
-    puts @character.inspect
-    respond_to do |format|
-        format.html
-    end
+    render json: @character
 end
 
 def search

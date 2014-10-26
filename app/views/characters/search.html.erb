@@ -1,25 +1,70 @@
 <%= render 'search_form' %>
 
-<article class="search-results">
+<article class="search-results" ng-controller="DescriptionController">
 
 <%- if @characters.size > 0 %>
 
 <h3>Results:</h3>
-<section class="list-group">
-    <% @characters.each do |character| %>
-        <a class="list-group-item" ng-controller="DescriptionController"
-                href="/characters/<%= character.id %>"
-                popover="{{characterDescription}}"
-                popover-placement="right"
-                popover-trigger="mouseenter"
-                popover-append-to-body="true"
-                popover-popup-delay="300"
-                popover-title="<%= character.name %> Description"
-                ng-mouseover="retrieveCharacterDesc(<%= character.id %>)">
-            <%= character.name %>
-        </a>
-    <% end %>
-</section>
+<div class="row">
+    <div class="col-xs-3">
+        <section class="list-group results-list">
+            <% @characters.each do |character| %>
+                <a class="list-group-item" href=""
+                        ng-mouseenter="retrieveCharacterDesc(<%= character.id %>)"
+                        ng-mouseleave="currentCharacter = null">
+                    <%= character.name %>
+                </a>
+            <% end %>
+        </section>
+    </div>
+    <div class="col-xs-9" ng-show="currentCharacter">
+        <article class="panel panel-default">
+            <section class="panel-heading">{{ currentCharacter.name }}</section>
+            <section class="panel-body">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <img ng-src="/assets/{{currentCharacter.avatar}}"
+                            alt="{{currentCharacter.name}}" class="img-thumbnail">
+                    </div>
+                    <div class="col-xs-8">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <dl>
+                                    <dt>Name:</dt>
+                                    <dd>{{ currentCharacter.name }}</dd>
+                                    <dt>Level:</dt>
+                                    <dd>{{ currentCharacter.level }}</dd>
+                                </dl>
+                            </div>
+                            <div class="col-xs-4">
+                                <dl>
+                                    <dt>Equipment:</dt>
+                                    <dd>
+                                        <ul>
+                                            <li ng-repeat="item in currentCharacter.equipment">
+                                                {{ item }}
+                                            </li>
+                                        </ul>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <dl>
+                                    <dt>Character Bio:</dt>
+                                    <dd>{{ currentCharacter.description }}</dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </article>
+    </div>
+</div>
+
+
 
 <% else %>
     No character names match your search.

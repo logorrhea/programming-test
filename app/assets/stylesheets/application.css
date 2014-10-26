@@ -18,20 +18,7 @@ html {
     font-family: Verdana, Geneva, sans-serif;
 }
 
-img.thumb {
-    max-height: 150px;
-}
-
-h1.armory {
-    text-align: center;
-}
-
 .search-region {
-    /*margin: 10px auto;*/
-    width: 30%;
-}
-
-.search-results {
     width: 30%;
 }
 
