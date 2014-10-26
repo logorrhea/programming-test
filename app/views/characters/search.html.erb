@@ -8,7 +8,7 @@
 <dl>
     <% @characters.each do |character| %>
         <dt>
-            <%= link_to character[:name], show_character_path(character[:id]) %>
+            <%= link_to character.name, show_character_path(character) %>
         </dt>
     <% end %>
 </dl>

@@ -3,15 +3,15 @@
 <article class="character-details">
 
     <div class="section">
-        <%= image_tag @character[:avatar], alt: @character[:name], class: 'thumb' %>
+        <%= image_tag @character.avatar, alt: @character.name, class: 'thumb' %>
     </div>
 
     <div class="section">
         <dl>
             <dt>Name:</dt>
-            <dd><%= @character[:name] %></dd>
+            <dd><%= @character.name %></dd>
             <dt>Level:</dt>
-            <dd><%= @character[:level] %></dd>
+            <dd><%= @character.level %></dd>
         </dl>
     </div>
 
@@ -20,7 +20,7 @@
             <dt>Equipment:</dt>
             <dd>
                 <ul>
-                    <% @character[:equipment].each do |item| %>
+                    <% @character.equipment.each do |item| %>
                         <li><%= item %></li>
                     <% end %>
                 </ul>

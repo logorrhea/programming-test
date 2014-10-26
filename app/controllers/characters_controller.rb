@@ -16,7 +16,8 @@ end
 
 def search
     if params[:q]
-        @characters = Character.search(params[:q])
+        search_string = Regexp.escape(params[:q])
+        @characters = Character.where(:name => /#{search_string}/i)
         respond_to do |format|
             format.html
         end
