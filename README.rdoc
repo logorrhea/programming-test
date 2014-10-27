@@ -20,6 +20,18 @@ To run this version of the application:
 4. Run `rake db:seed` to populate the database with example data
 5. Run `rails s`
 
+The Character model for this step is actually much simpler than in step 1 since
+the `mongo_mapper` gem provides all the querying methods for us. It is also
+much clearer what attributes the Character has in this step, given the syntax
+that `mongo_mapper` uses.
+
+I went with a NoSQL database for this application to simplify the model setup
+it would require. Had I gone with a SQL database, the `equipment` property
+would have required either another table (and model to match) or to be stored
+as a delimited string (gross). That said, if the relationship were such that
+many characters shared the same equipment, a SQL setup could potentially
+prevent repitition of data.
+
 **Side Note:** For this and the final version of the application, running the
 rails server will give a warning about the fact that `bson_ext` is not
 installed. I left it out intentionally because the gem does not compile
