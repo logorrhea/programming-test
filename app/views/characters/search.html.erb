@@ -7,11 +7,8 @@
 <h3>Results:</h3>
 <dl>
     <% @characters.each do |character| %>
-        <dt ng-controller="DescriptionController">
-            <a popover="{{characterDescription}}"
-                ng-mouseover="retrieveCharacterDesc(<%= character.id %>)">
-                <%= character.name %>
-            </a>
+        <dt>
+            <%= link_to character.name, show_character_path(character) %>
         </dt>
     <% end %>
 </dl>
